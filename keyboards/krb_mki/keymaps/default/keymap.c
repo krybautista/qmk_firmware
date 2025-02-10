@@ -5,7 +5,7 @@
 
 enum custom_keycodes {
   GITADD = SAFE_RANGE,GITPUSH,
-  VSCODE
+  VSCODE,GITCOMMIT
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -22,7 +22,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     [0] = LAYOUT_ortho_3x3(
         GITADD, GITPUSH, TO(1),
-        VSCODE, KC_5, KC_6,
+        VSCODE, GITCOMMIT, KC_6,
         QK_BOOT, QK_REBOOT, KC_3
     ),
 
@@ -44,6 +44,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
     case GITPUSH:
       if (record->event.pressed) {
         SEND_STRING("git push");
+      }
+      return false;
+    case GITCOMMIT:
+      if (record->event.pressed) {
+        SEND_STRING("git commit -m ''");
       }
       return false;
     case VSCODE:

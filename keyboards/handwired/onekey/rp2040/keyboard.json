@@ -1,10 +1,10 @@
 {
-    "keyboard_name": "Onekey RP2040",
+    "keyboard_name": "Xiao 2040",
     "processor": "RP2040",
     "bootloader": "rp2040",
     "matrix_pins": {
-        "cols": ["GP4"],
-        "rows": ["GP5"]
+        "cols": ["GP6"],
+        "rows": ["GP7"]
     },
     "backlight": {
         "pin": "GP25"
